@@ -1,17 +1,16 @@
 // Root app
-const { useEffect } = React;
-
 function App() {
   window.useReveal();
   return (
     <>
       <Loader />
+      <a className="skip-link" href="#projects">Skip to projects</a>
       <GlobalBg />
       <ScrollProgress />
       <CustomCursor />
       <Nav />
       <AudioToggle />
-      <main>
+      <main id="main">
         <Hero />
         <Marquee />
         <About />

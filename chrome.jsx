@@ -32,6 +32,11 @@ function CustomCursor() {
   const dot = useRef(null);
   const ring = useRef(null);
   useEffect(() => {
+    // Pointer-less / coarse-pointer devices and reduced-motion users keep the native cursor.
+    if (window.matchMedia("(hover: none), (pointer: coarse), (prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("native-cursor");
+      return;
+    }
     let mx = window.innerWidth/2, my = window.innerHeight/2;
     let rx = mx, ry = my;
     const onMove = (e) => {
@@ -86,8 +91,10 @@ function ScrollProgress() {
 }
 
 function Particles() {
+  const reduced = typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const [parts] = useState(() =>
-    Array.from({ length: 28 }, (_, i) => ({
+    Array.from({ length: reduced ? 0 : 16 }, (_, i) => ({
       left: Math.random() * 100,
       delay: Math.random() * 12,
       dur: 14 + Math.random() * 14,
@@ -121,8 +128,7 @@ function Nav() {
       for (const id of ids) {
         const el = document.getElementById(id);
         if (!el) continue;
-        const r = el.getBoundingClientRect();
-        if (r.top <= 200) cur = id;
+        if (el.getBoundingClientRect().top <= 140) cur = id;
       }
       setActive(cur);
     };
@@ -132,25 +138,32 @@ function Nav() {
   }, []);
   const items = [
     ["about","About"],["skills","Skills"],["highlights","Highlights"],
-    ["projects","Work"],["achievements","Wins"],["contact","Contact"],
+    ["projects","Work"],["achievements","Wins"],["experience","Experience"],["contact","Contact"],
   ];
   const go = (id) => (e) => {
     e.preventDefault();
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+    // keep keyboard focus in step with the visual jump
+    el.setAttribute("tabindex", "-1");
+    el.focus({ preventScroll: true });
   };
   return (
-    <nav className="nav">
-      <div className="nav-brand"><span className="dot"/><span>RAGHAV GULATI</span></div>
+    <nav className="nav" aria-label="Section navigation">
+      <div className="nav-brand"><span className="dot" aria-hidden="true"/><span className="nav-brand-full">RAGHAV GULATI</span><span className="nav-brand-short">RG</span></div>
       <div className="nav-links">
         {items.map(([id, label]) => (
           <a key={id} href={"#" + id}
              className={"nav-link" + (active === id ? " active" : "")}
+             aria-current={active === id ? "true" : undefined}
              onClick={go(id)}>{label}</a>
         ))}
       </div>
-      <a className="nav-cta" href="assets/Raghav-Gulati-Resume.pdf" target="_blank" rel="noreferrer">
-        Resume
-        <svg width="11" height="11" viewBox="0 0 16 16" fill="none">
+      <a className="nav-cta" href={window.CONTACT.resume} target="_blank" rel="noopener noreferrer"
+         aria-label="Open résumé PDF in a new tab">
+        Résumé
+        <svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true">
           <path d="M5 3h8v8M13 3 3 13" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
         </svg>
       </a>
@@ -275,8 +288,10 @@ function AudioToggle() {
   };
 
   return (
-    <button className={"audio-toggle" + (on ? " on" : "")} onClick={toggle} aria-label="Toggle ambient sound">
-      <div className="audio-bars"><span/><span/><span/><span/></div>
+    <button className={"audio-toggle" + (on ? " on" : "")} onClick={toggle}
+            aria-pressed={on} title={on ? "Turn ambient music off" : "Turn ambient music on"}
+            aria-label={on ? "Turn ambient music off" : "Turn ambient music on"}>
+      <div className="audio-bars" aria-hidden="true"><span/><span/><span/><span/></div>
     </button>
   );
 }
