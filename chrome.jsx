@@ -91,10 +91,12 @@ function ScrollProgress() {
 }
 
 function Particles() {
-  const reduced = typeof window !== "undefined" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // Skip the DOM entirely on phones and for reduced-motion users — CSS hides
+  // them there anyway, and 16 permanently animating nodes are not free.
+  const skip = typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce), (max-width: 780px)").matches;
   const [parts] = useState(() =>
-    Array.from({ length: reduced ? 0 : 16 }, (_, i) => ({
+    Array.from({ length: skip ? 0 : 16 }, (_, i) => ({
       left: Math.random() * 100,
       delay: Math.random() * 12,
       dur: 14 + Math.random() * 14,
@@ -119,55 +121,184 @@ function Particles() {
   );
 }
 
+const NAV_ITEMS = [
+  ["about","About"],["skills","Skills"],["highlights","Highlights"],
+  ["projects","Work"],["achievements","Wins"],["experience","Experience"],["contact","Contact"],
+];
+
+// Below this the nav is a bar + drawer; above it, the desktop pill. Kept in
+// sync with the `max-width: 1023px` tier in styles.css.
+const DRAWER_MQ = "(max-width: 1023px)";
+
 function Nav() {
   const [active, setActive] = useState("hero");
+  const [open, setOpen] = useState(false);
+  const navRef = useRef(null);
+  const toggleRef = useRef(null);
+  const panelRef = useRef(null);
+
+  // Publish the nav's real height so scroll-padding and the hero's top padding
+  // track it — the bar is a different height per breakpoint, and hard-coding
+  // one value means anchored jumps land under the nav on the other tiers.
   useEffect(() => {
-    const ids = ["hero","about","skills","highlights","projects","achievements","experience","contact"];
-    const onScroll = () => {
+    const el = navRef.current; if (!el) return;
+    const apply = () => {
+      const h = Math.round(el.getBoundingClientRect().height);
+      if (h > 0) document.documentElement.style.setProperty("--nav-h", h + "px");
+    };
+    apply();
+    const ro = new ResizeObserver(apply);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
+  // Scroll spy — the trigger line sits just below the nav rather than at a
+  // fixed 140px, so it stays correct on a phone bar and a desktop pill alike.
+  useEffect(() => {
+    const ids = ["hero", ...NAV_ITEMS.map(([id]) => id)];
+    let ticking = false;
+    const measure = () => {
+      ticking = false;
+      const navH = navRef.current ? navRef.current.getBoundingClientRect().height : 62;
+      // Sits below where `scroll-padding-top` (nav-h + 44) lands an anchored
+      // jump, so clicking a link always lights up the link you clicked.
+      const line = navH + 72;
       let cur = "hero";
       for (const id of ids) {
         const el = document.getElementById(id);
-        if (!el) continue;
-        if (el.getBoundingClientRect().top <= 140) cur = id;
+        if (el && el.getBoundingClientRect().top <= line) cur = id;
       }
       setActive(cur);
     };
-    onScroll();
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(measure);
+    };
+    measure();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
-  const items = [
-    ["about","About"],["skills","Skills"],["highlights","Highlights"],
-    ["projects","Work"],["achievements","Wins"],["experience","Experience"],["contact","Contact"],
-  ];
+
+  // While the drawer covers the page, the page behind it must not scroll and
+  // Tab must not wander into content hidden behind the scrim.
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const focusables = () => {
+      const panel = panelRef.current;
+      if (!panel) return [];
+      // The toggle is part of the loop so Shift+Tab from the first link
+      // reaches the control that opened the drawer.
+      return [...panel.querySelectorAll("a[href]"), toggleRef.current].filter(Boolean);
+    };
+
+    const onKey = (e) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        setOpen(false);
+        toggleRef.current?.focus();
+        return;
+      }
+      if (e.key !== "Tab") return;
+      const items = focusables();
+      if (!items.length) return;
+      const first = items[0], last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    };
+    document.addEventListener("keydown", onKey);
+
+    // Two frames: the panel is still `visibility: hidden` when this effect
+    // runs, and a hidden element silently refuses focus. One rAF fires before
+    // the style recalc that reveals it; the second lands after.
+    let raf2;
+    const raf1 = requestAnimationFrame(() => {
+      raf2 = requestAnimationFrame(() => focusables()[0]?.focus());
+    });
+
+    return () => {
+      document.body.style.overflow = prev;
+      document.removeEventListener("keydown", onKey);
+      cancelAnimationFrame(raf1);
+      cancelAnimationFrame(raf2);
+    };
+  }, [open]);
+
+  // Rotating a phone to landscape can cross into the desktop tier — the drawer
+  // must not stay "open" once it no longer exists.
+  useEffect(() => {
+    const mq = window.matchMedia(DRAWER_MQ);
+    const onChange = (e) => { if (!e.matches) setOpen(false); };
+    mq.addEventListener ? mq.addEventListener("change", onChange) : mq.addListener(onChange);
+    return () => {
+      mq.removeEventListener ? mq.removeEventListener("change", onChange) : mq.removeListener(onChange);
+    };
+  }, []);
+
   const go = (id) => (e) => {
     e.preventDefault();
     const el = document.getElementById(id);
     if (!el) return;
+    setOpen(false);
     el.scrollIntoView({ behavior: "smooth", block: "start" });
     // keep keyboard focus in step with the visual jump
     el.setAttribute("tabindex", "-1");
     el.focus({ preventScroll: true });
   };
+
+  const C = window.CONTACT;
+
   return (
-    <nav className="nav" aria-label="Section navigation">
-      <div className="nav-brand"><span className="dot" aria-hidden="true"/><span className="nav-brand-full">RAGHAV GULATI</span><span className="nav-brand-short">RG</span></div>
-      <div className="nav-links">
-        {items.map(([id, label]) => (
-          <a key={id} href={"#" + id}
-             className={"nav-link" + (active === id ? " active" : "")}
-             aria-current={active === id ? "true" : undefined}
-             onClick={go(id)}>{label}</a>
-        ))}
-      </div>
-      <a className="nav-cta" href={window.CONTACT.resume} target="_blank" rel="noopener noreferrer"
-         aria-label="Open résumé PDF in a new tab">
-        Résumé
-        <svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-          <path d="M5 3h8v8M13 3 3 13" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
-        </svg>
-      </a>
-    </nav>
+    <>
+      <div className={"nav-scrim" + (open ? " open" : "")} onClick={() => setOpen(false)} aria-hidden="true"/>
+      <nav className="nav" ref={navRef} aria-label="Section navigation">
+        <div className="nav-brand">
+          <span className="dot" aria-hidden="true"/>
+          <span className="nav-brand-full">RAGHAV GULATI</span>
+          <span className="nav-brand-short">RG</span>
+        </div>
+
+        <div id="nav-menu" ref={panelRef} className={"nav-links" + (open ? " open" : "")}>
+          {NAV_ITEMS.map(([id, label], i) => (
+            <a key={id} href={"#" + id}
+               className={"nav-link" + (active === id ? " active" : "")}
+               aria-current={active === id ? "true" : undefined}
+               onClick={go(id)}>
+              <span className="nav-num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+              {label}
+            </a>
+          ))}
+          <div className="nav-drawer-extras">
+            <a href={C.githubUrl} target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href={C.linkedinUrl} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href={`mailto:${C.email}`}>Email</a>
+          </div>
+        </div>
+
+        <div className="nav-actions">
+          <a className="nav-cta" href={C.resume} target="_blank" rel="noopener noreferrer"
+             aria-label="Open résumé PDF in a new tab">
+            <span className="nav-cta-label">Résumé</span>
+            <svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M5 3h8v8M13 3 3 13" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
+            </svg>
+          </a>
+          <button ref={toggleRef} type="button" className="nav-toggle"
+                  aria-expanded={open} aria-controls="nav-menu"
+                  aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+                  onClick={() => setOpen(v => !v)}>
+            <span className="nav-toggle-bars" aria-hidden="true"><span/><span/><span/></span>
+          </button>
+        </div>
+      </nav>
+    </>
   );
 }
 

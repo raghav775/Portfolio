@@ -840,7 +840,7 @@ function Contact() {
           <div className="section-sub">For research, internships, or hackathon teams that ship at 3 AM.</div>
         </div>
         <div className="contact-grid">
-          <div className="reveal"><Terminal/></div>
+          <div className="contact-terminal reveal"><Terminal/></div>
           <div className="contact-side reveal-stagger">
             <a className="contact-card" href={`mailto:${C.email}`}>
               <div className="cc-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" strokeWidth="1.5"/><path d="M3 7l9 6 9-6" stroke="currentColor" strokeWidth="1.5"/></svg></div>
