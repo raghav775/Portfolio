@@ -51,7 +51,7 @@ function Hero() {
 
   const goProjects = (e) => {
     e.preventDefault();
-    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    document.getElementById("projects")?.scrollIntoView({ behavior: window.scrollBehavior(), block: "start" });
   };
 
   return (

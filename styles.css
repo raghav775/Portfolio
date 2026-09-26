@@ -93,10 +93,9 @@ html, body {
   font-size: var(--fs-base);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 html {
+  scroll-behavior: smooth;
   /* Anchored jumps must clear the fixed nav at whatever height it currently is. */
   scroll-padding-top: calc(var(--nav-h) + var(--safe-t) + 44px);
   /* iOS inflates text in landscape unless this is pinned. */
@@ -109,9 +108,15 @@ body {
   min-height: 100svh;
   cursor: none;
   overflow-wrap: break-word;
-  /* `contain`, not `none` — stops scroll chaining out of the drawer while
-     leaving pull-to-refresh intact. */
-  overscroll-behavior-y: contain;
+  /* Only on <body>, never on <html> as well. With `overflow-x` on both, the
+     root's value goes to the viewport and <body> turns into its own scroll
+     container (overflow-y computes to `auto`). That breaks scrolling on iOS
+     Safari, and it stops `body { overflow: hidden }` from locking the page
+     behind the nav drawer. On <body> alone the value goes to the viewport,
+     so the window stays the only thing that scrolls. `clip` is used where
+     supported because, unlike `hidden`, it never creates a scroll container. */
+  overflow-x: hidden;
+  overflow-x: clip;
 }
 /* Media never dictates layout width. */
 img, svg, video, canvas { max-width: 100%; height: auto; }

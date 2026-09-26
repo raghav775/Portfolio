@@ -84,8 +84,12 @@ function ScrollProgress() {
       if (fill.current) fill.current.style.transform = `scaleX(${p})`;
     };
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
     onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
   return <div className="scroll-progress"><div ref={fill} className="scroll-progress-fill"/></div>;
 }
@@ -119,6 +123,12 @@ function Particles() {
       ))}
     </div>
   );
+}
+
+// An explicit `behavior: "smooth"` overrides the CSS reduced-motion reset,
+// so programmatic jumps have to check the preference themselves.
+function scrollBehavior() {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
 }
 
 const NAV_ITEMS = [
@@ -247,7 +257,7 @@ function Nav() {
     const el = document.getElementById(id);
     if (!el) return;
     setOpen(false);
-    el.scrollIntoView({ behavior: "smooth", block: "start" });
+    el.scrollIntoView({ behavior: scrollBehavior(), block: "start" });
     // keep keyboard focus in step with the visual jump
     el.setAttribute("tabindex", "-1");
     el.focus({ preventScroll: true });
@@ -429,15 +439,28 @@ function AudioToggle() {
 
 function useReveal() {
   useEffect(() => {
-    const els = document.querySelectorAll(".reveal, .reveal-stagger");
+    const els = [...document.querySelectorAll(".reveal, .reveal-stagger")];
+    // No IntersectionObserver (or no animation wanted) → just show everything.
+    if (!("IntersectionObserver" in window) ||
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      els.forEach(el => el.classList.add("in"));
+      return;
+    }
+    // `threshold: 0`, not a ratio. The project grid is ~5000px tall on a phone,
+    // so a 12% ratio needs ~600px of it on screen at once, which never happens
+    // and the whole Work section stays invisible. Any overlap now counts, and
+    // the -8% bottom margin still keeps the effect from firing right at the edge.
+    const show = (el) => { el.classList.add("in"); io.unobserve(el); };
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add("in");
-          io.unobserve(e.target);
-        }
+        if (!e.isIntersecting) return;
+        // A fast fling, a nav jump or a restored scroll position can skip an
+        // element entirely, so it never intersects. Everything before the
+        // element being revealed is already above the fold, so show it too.
+        const idx = els.indexOf(e.target);
+        for (let i = 0; i <= idx; i++) if (!els[i].classList.contains("in")) show(els[i]);
       });
-    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    }, { threshold: 0, rootMargin: "0px 0px -8% 0px" });
     els.forEach(el => io.observe(el));
     return () => io.disconnect();
   }, []);
@@ -476,5 +499,5 @@ function useMagnetic(strength = 18) {
 }
 
 Object.assign(window, {
-  Loader, CustomCursor, Nav, AudioToggle, GlobalBg, ScrollProgress, useReveal, useMagnetic
+  Loader, CustomCursor, Nav, AudioToggle, GlobalBg, ScrollProgress, useReveal, useMagnetic, scrollBehavior
 });
