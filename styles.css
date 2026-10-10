@@ -94,9 +94,11 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 html {
+  /* On `html` only: it propagates to the viewport. Set on body as well, body
+     becomes its own (never-overflowing) scroll container and eats wheel/touch. */
+  overflow-x: hidden;
   /* Anchored jumps must clear the fixed nav at whatever height it currently is. */
   scroll-padding-top: calc(var(--nav-h) + var(--safe-t) + 44px);
   /* iOS inflates text in landscape unless this is pinned. */
@@ -109,9 +111,6 @@ body {
   min-height: 100svh;
   cursor: none;
   overflow-wrap: break-word;
-  /* `contain`, not `none` — stops scroll chaining out of the drawer while
-     leaving pull-to-refresh intact. */
-  overscroll-behavior-y: contain;
 }
 /* Media never dictates layout width. */
 img, svg, video, canvas { max-width: 100%; height: auto; }
