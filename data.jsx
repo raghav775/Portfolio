@@ -269,91 +269,47 @@ const HIGHLIGHTS_SECONDARY = [
 ];
 
 const ACHIEVEMENTS = [
+  { year: "2026", title: "Smart India Hackathon 2026", place: "Advanced to Round 3 with AnnData, a transparent farm-to-buyer platform", rank: "Round 3" },
   { year: "2026", title: "DU CIC Cluster Hackathon", place: "24-hour hackathon at Delhi University CIC", rank: "#2" },
   { year: "2026", title: "IIIT Delhi Hackathon", place: "24-hour hackathon at IIIT Delhi", rank: "#2" },
-  { year: "2023", title: "iCode Hackathon — Python Advanced", place: "98th national of 80,000+ · 178th global among 50,000+", rank: "Top 0.12%" },
-  { year: "2023", title: "Animation Storytelling", place: "Shri Ram Global School", rank: "#1" },
-  { year: "2022", title: "Ideathon Winner", place: "Satakunta University, Finland · 1st place + LOR · concept behind Shruti AI", rank: "#1" },
-  { year: "2022–24", title: "Cybersecurity Speaker", place: "5+ workshops at Salwan Public School — phishing, online safety, privacy", rank: "5+ talks" },
+  { year: "2023", title: "iCode Hackathon · Python Advanced", place: "98th nationally among 80,000+ · 178th globally", rank: "Top 0.12%" },
+  { year: "2022", title: "Ideathon, Satakunta University (Finland)", place: "1st place with a letter of recommendation · the concept behind Shruti AI", rank: "#1" },
 ];
 
 const CERTIFICATIONS = [
   {
-    issuer: "Google · IBM · CISCO", name: "Foundations of Cybersecurity", year: "2024", category: "Cybersecurity",
-    desc: "Built a strong foundation in cybersecurity principles — common threats, attack vectors, and defense strategies across modern systems.",
-    skills: ["Threat Analysis", "Attack Vectors", "Defense Strategy", "Security Fundamentals"],
+    issuer: "Google · IBM · Cisco", name: "Foundations of Cybersecurity", year: "2024", category: "Systems & Security",
+    desc: "Core security principles: common threats, attack vectors, and defense strategies across modern systems.",
+    skills: ["Threat analysis", "Attack vectors", "Defense strategy", "Security fundamentals"],
   },
   {
-    issuer: "IBM", name: "Cybersecurity Compliance, Frameworks & Regulation", year: "2024", category: "Cybersecurity",
-    desc: "Explored key compliance frameworks including GDPR, HIPAA, and NIST, and understood their practical impact on organizational security posture.",
-    skills: ["GDPR", "HIPAA", "NIST", "Risk Management"],
-  },
-  {
-    issuer: "IBM", name: "Operating Systems: Administration & Security", year: "2024", category: "Cybersecurity",
-    desc: "Acquired hands-on knowledge of OS architecture, user and process management, resource allocation, and system-level security hardening.",
-    skills: ["OS Architecture", "Process Management", "Resource Allocation", "Hardening"],
-  },
-  {
-    issuer: "Meta", name: "Programming in Python", year: "2024", category: "AI · Python & NLP",
-    desc: "Built a solid Python foundation covering data structures, control flow, functions, and real-world problem-solving techniques.",
-    skills: ["Data Structures", "Control Flow", "Functions", "Problem Solving"],
-  },
-  {
-    issuer: "VIPS", name: "PyEdge: Practical Python & NLP", year: "2024", category: "AI · Python & NLP",
-    desc: "Completed practical training in Library Management Systems, Data Visualization, NLP using NLTK, and Database Management.",
-    skills: ["NLTK / NLP", "Data Visualization", "Database Management", "Applied Python"],
-  },
-  {
-    issuer: "Meta", name: "Introduction to Frontend Development", year: "2024", category: "Frontend & Web",
-    desc: "Gained proficiency in core front-end technologies — HTML, CSS, and JavaScript — to build responsive, accessible user interfaces.",
-    skills: ["HTML", "CSS", "JavaScript", "Accessibility"],
-  },
-  {
-    issuer: "Meta", name: "HTML and CSS in Depth", year: "2024", category: "Frontend & Web",
-    desc: "Gained hands-on experience building responsive, accessible web pages with modern HTML5 semantics and advanced CSS3 techniques.",
-    skills: ["HTML5", "CSS3", "Responsive Design", "Flexbox / Grid"],
-  },
-  {
-    issuer: "Meta", name: "Programming with JavaScript", year: "2024", category: "Frontend & Web",
-    desc: "Completed an in-depth course covering JavaScript fundamentals, OOP, DOM manipulation, and practical problem-solving techniques.",
-    skills: ["ES6+", "DOM Manipulation", "Functions & Closures", "OOP"],
-  },
-  {
-    issuer: "VIPS", name: "Mobile Application Development (Flutter & Dart)", year: "2024", category: "Mobile & Tools",
-    desc: "Completed a certified course in Flutter and Dart on Android Studio, covering UI/UX design, state management, and API integration.",
-    skills: ["Flutter", "Dart", "State Management", "API Integration"],
-  },
-  {
-    issuer: "Meta", name: "Version Control with Git & GitHub", year: "2024", category: "Mobile & Tools",
-    desc: "Learned industry-standard version control workflows using Git and GitHub — branching, merging, pull requests, and team collaboration.",
-    skills: ["Git", "GitHub", "Branching", "Collaborative Workflows"],
+    issuer: "IBM", name: "Operating Systems: Administration & Security", year: "2024", category: "Systems & Security",
+    desc: "OS architecture, user and process management, resource allocation, and system-level security hardening.",
+    skills: ["OS architecture", "Process management", "Resource allocation", "Hardening"],
   },
 ];
 
 /* Non-scholastic — résumé-backed. Kept out of the hackathon list on purpose. */
 const BEYOND = [
   {
-    group: "Performing arts",
-    items: [
-      "Certified in Drama and Nukkad Natak — multiple Department of Education (DoE) certificates",
-      "Trained guitarist — 10+ years of consistent practice",
-    ],
+    group: "Music",
+    items: ["Guitarist with 10+ years of consistent practice"],
   },
   {
     group: "Sports",
     items: [
-      "Zonal medallist — Shot Put & Discus Throw",
-      "Zonal medallist — Skating",
-      "Represented school at State level in Badminton",
+      "Zonal medallist in Shot Put and Discus Throw",
+      "Zonal medallist in Skating",
+      "Represented my school in Badminton at state level",
     ],
   },
 ];
 
 const COUNTERS = [
-  { num: 7, suffix: "", label: "Projects shipped" },
-  { num: 5, suffix: "", label: "Podiums & national ranks" },
+  { num: 100, suffix: "+", label: "LeetCode problems solved" },
+  { num: 98, suffix: "th", label: "iCode national rank of 80,000+" },
   { num: 9.0, suffix: "", label: "CGPA · B.Tech CS", decimals: 2 },
-  { num: 6, suffix: "yrs", label: "On GitHub" },
+  { num: 7, suffix: "", label: "Projects shipped" },
 ];
 
 const EXPERIENCE = [

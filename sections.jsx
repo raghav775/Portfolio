@@ -621,7 +621,7 @@ function Achievements() {
             <div className="section-tag"><span className="num">05</span><span>Wins</span></div>
             <h2 className="section-title">Where the <em>numbers</em> earn the words.</h2>
           </div>
-          <div className="section-sub">Hackathons, ideathons, podiums — and the certifications behind them.</div>
+          <div className="section-sub">Competitive programming, hackathon podiums, and the certifications behind them.</div>
         </div>
 
         <div className="counters reveal-stagger">
