@@ -230,43 +230,42 @@ const PROJECTS = [
 const HIGHLIGHTS_PRIMARY = [
   {
     area: "Retrieval",
-    title: "Hybrid dense + BM25 retrieval that beat semantic-only search",
+    title: "Hybrid dense + BM25 search that beat semantic-only retrieval",
     detail:
-      "Fused BAAI/bge-small-en-v1.5 embeddings with BM25 through a 60/40 per-query score normalization in Qdrant, over a 183-chunk policy corpus spanning 12 documents and 11 banking verticals.",
+      "Fused BAAI/bge-small-en-v1.5 embeddings with BM25 through per-query score normalization in Qdrant, over a 183-chunk policy corpus covering 11 banking verticals at Spice Money.",
     tags: ["Qdrant", "BM25", "fastembed", "Python"],
   },
   {
-    area: "Trust & evaluation",
-    title: "Three-tier confidence gate with an LLM-as-judge harness",
+    area: "Reliability & evaluation",
+    title: "A confidence gate that refuses instead of guessing",
     detail:
-      "Answer / clarify / refuse gating reached 100% refusal accuracy on adversarial queries, backed by Hinglish query rewriting and a Gemini 2.5 Flash judge scoring faithfulness and relevancy.",
-    tags: ["Confidence gating", "LLM-as-judge", "Hinglish rewriting"],
+      "Answer, clarify or refuse gating reached 100% refusal accuracy on adversarial queries, backed by query rewriting for vague and Hinglish inputs and an LLM-as-judge harness scoring faithfulness and relevancy.",
+    tags: ["Confidence gating", "LLM-as-judge", "Query rewriting"],
   },
   {
-    area: "Modelling",
-    title: "Robust forecasting that absentee months can't skew",
+    area: "System design",
+    title: "A net-realization engine with an append-only audit log",
     detail:
-      "Tiered sales-forecasting pipeline over 6 months of agent transaction data using Theil-Sen regression and peer-growth blending, plus an AEPS-adoption scoring model to flag agents ready to grow usage.",
-    tags: ["Theil-Sen", "Forecasting", "Scoring models"],
+      "AnnData, for Smart India Hackathon 2026 (Round 3): a four-layer farm-to-buyer platform that ranks buyer offers by the farmer's net price after transport, commission, rejection risk and payment delay. In progress.",
+    tags: ["FastAPI", "PostgreSQL", "Flutter", "React"],
   },
   {
-    area: "Systems & resilience",
-    title: "Dual-LLM failover with AES-256 audit logging",
+    area: "Availability & security",
+    title: "Dual-LLM failover with encrypted audit logging",
     detail:
-      "Routed NyayaSetu queries through Groq (LLaMA 3.1) with automatic Ollama fallback during API exhaustion, and paired AES-256 encrypted query logs with JWT auth to meet legal confidentiality requirements.",
+      "Routed NyayaSetu queries through Groq (LLaMA 3.1) with automatic Ollama fallback during API exhaustion, and paired AES-256 encrypted query logs with JWT auth to meet legal confidentiality needs.",
     tags: ["Groq API", "Ollama", "AES-256", "JWT"],
   },
 ];
 
 const HIGHLIGHTS_SECONDARY = [
-  "Fused 3 independent AI signals — CLIP vision-language, FFT frequency analysis, and NLP heuristics — into a confidence-weighted content detector",
-  "Engineered 30fps gesture tracking via a 21-landmark MediaPipe model with a 5-pixel debounce filter, cutting false triggers by ~80% on CPU",
-  "Built a six-factor Bayesian availability engine and multi-format prescription OCR pipeline with zero paid APIs",
-  "Shipped a cross-platform Flutter app with 0% native code across iOS and Android from a single Dart codebase",
-  "Scraped DBT and other government subsidy portals into a history tracker and agent-level payout prediction pipeline",
-  "Designed an Ebbinghaus memory-decay model for a fully offline AI companion — 3-language NLP pipeline, zero cloud calls",
-  "Ranked #2 at both IIIT Delhi and DU CIC 24-hour hackathons in 2026 — shipped NyayaSetu end-to-end under competition constraints",
-  "Presented 5+ cybersecurity workshops on phishing detection, OS hardening, and digital privacy at Salwan Public School",
+  "Built a Theil-Sen sales-forecasting pipeline with peer-growth blending over 6 months of agent transactions, plus an AEPS-adoption scoring model",
+  "Built a scraper across government subsidy portals that feeds a payout prediction pipeline for agent-level eligibility and timing",
+  "Built a six-factor Bayesian availability engine and a multi-format prescription OCR pipeline with zero paid APIs",
+  "Fused 3 independent signals (CLIP vision-language, FFT frequency analysis, NLP heuristics) into a confidence-weighted content detector",
+  "Engineered 30fps gesture tracking on a 21-landmark MediaPipe model with a 5-pixel debounce filter, cutting false triggers by ~80% on CPU",
+  "Built a fully offline AI companion on Phi-3 Mini with 6+ NLP modules for contextual memory and English, Hindi and Hinglish chat",
+  "Shipped a cross-platform Flutter app to iOS and Android from a single Dart codebase",
 ];
 
 const ACHIEVEMENTS = [

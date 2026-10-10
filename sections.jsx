@@ -270,7 +270,7 @@ function TechnicalHighlights() {
             <div className="section-tag"><span className="num">03</span><span>Technical Highlights</span></div>
             <h2 className="section-title">Engineering <em>depth.</em></h2>
           </div>
-          <div className="section-sub">The four hardest things I've built, then everything else worth scanning.</div>
+          <div className="section-sub">The four hardest problems I've worked on, then everything else worth scanning.</div>
         </div>
 
         <div className="hl-primary reveal-stagger">
