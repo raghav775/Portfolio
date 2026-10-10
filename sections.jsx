@@ -241,7 +241,7 @@ function Skills() {
         <div className="section-head reveal">
           <div>
             <div className="section-tag"><span className="num">02</span><span>Skills</span></div>
-            <h2 className="section-title">A stack built for <em>intelligent systems</em>.</h2>
+            <h2 className="section-title">Fundamentals first, <em>then the stack</em>.</h2>
           </div>
           <div className="section-sub">
             Ordered by depth, not alphabetically. <strong>Filled</strong> chips are what the shipped work

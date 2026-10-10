@@ -50,36 +50,36 @@ const ABOUT_TIMELINE = [
    show range. `core` chips are the ones the work actually rests on.        */
 const SKILL_GROUPS = [
   {
-    name: "AI & Retrieval Systems",
+    name: "Backend & APIs",
     tier: "depth",
-    evidence: "Shipped in production — Spice Money policy chatbot + NyayaSetu legal RAG.",
-    core: ["Python", "FastAPI", "RAG", "Qdrant", "fastembed", "Groq API", "Ollama"],
-    also: ["VectorDB", "Hybrid dense + BM25", "LLM-as-judge eval", "Prompting", "Phi-3 Mini"],
+    evidence: "FastAPI backends behind the Spice Money policy chatbot and NyayaSetu, with JWT auth and AES-256 encrypted logging on NyayaSetu.",
+    core: ["Python", "FastAPI", "REST APIs", "MySQL", "JWT auth"],
+    also: ["Flask", "PostgreSQL", "AES-256 encryption"],
   },
   {
-    name: "Data Science & Pipelines",
+    name: "AI & Data",
     tier: "depth",
-    evidence: "Forecasting, adoption scoring, and scraping pipelines over real transaction data.",
-    core: ["Python", "Theil-Sen regression", "Forecasting", "MySQL", "Web scraping"],
-    also: ["Jupyter Notebook", "Google Colab", "BeautifulSoup4", "lxml", "Requests"],
+    evidence: "Hybrid retrieval, LLM-as-judge evaluation and robust forecasting on real agent data at Spice Money.",
+    core: ["RAG", "LLMs", "Machine learning", "Data analysis", "Web scraping"],
+    also: ["Qdrant", "Hybrid dense + BM25", "LLM-as-judge eval", "Theil-Sen regression", "Ollama"],
   },
   {
     name: "Languages",
     tier: "breadth",
-    core: ["Python", "JavaScript", "C"],
-    also: ["Java", "Rust", "Dart", "HTML", "CSS"],
+    core: ["Python (5+ yrs)", "Java", "JavaScript"],
+    also: ["C", "HTML", "CSS"],
   },
   {
-    name: "Web & Cross-platform",
+    name: "Core CS",
     tier: "breadth",
-    core: ["React", "FastAPI", "Flutter"],
-    also: ["Dart", "Bootstrap", "Android Studio", "Material Design", "Netlify", "Vercel"],
+    core: ["Data structures & algorithms", "OOP"],
+    also: ["Operating systems", "Databases", "System design"],
   },
   {
-    name: "Security & Systems",
+    name: "Tools & Platforms",
     tier: "breadth",
-    core: ["AES-256", "JWT auth", "Privacy-by-design"],
-    also: ["GDPR · HIPAA · NIST", "OS hardening", "Compliance frameworks", "Git / GitHub"],
+    core: ["Git & GitHub (since 2020)", "React", "Flutter"],
+    also: ["Netlify", "Vercel", "Render"],
   },
 ];
 
