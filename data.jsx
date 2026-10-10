@@ -3,32 +3,32 @@
 
 const PROFILE = {
   name: "Raghav Gulati",
-  now: "Data Science Intern · Spice Money",
+  now: "Open to SWE internships",
   degree: "B.Tech CS with Applied Mathematics",
-  school: "VIPS, New Delhi",
-  years: "2024–28",
+  school: "VIPS-TC (GGSIPU), New Delhi",
+  years: "2024-28",
   cgpa: "9.00",
 };
 
 const EDUCATION = [
   {
-    year: "2024–28",
+    year: "2024-28",
     qualification: "B.Tech, Computer Science with Applied Mathematics",
-    institute: "VIPS, New Delhi",
+    institute: "VIPS-TC (GGSIPU), New Delhi",
     score: "9.00",
     scoreLabel: "CGPA",
     current: true,
   },
   {
     year: "2024",
-    qualification: "Class XII — Non-Medical with CS, CBSE",
+    qualification: "Class XII, Non-Medical with CS (CBSE)",
     institute: "Salwan Public School, New Delhi",
     score: "85%",
     scoreLabel: "Aggregate",
   },
   {
     year: "2022",
-    qualification: "Class X, CBSE",
+    qualification: "Class X (CBSE)",
     institute: "Salwan Public School, New Delhi",
     score: "87.5%",
     scoreLabel: "Aggregate",
@@ -36,12 +36,12 @@ const EDUCATION = [
 ];
 
 const ABOUT_TIMELINE = [
-  { year: "2020", title: "First commit", desc: "Active on GitHub since age 14 — building, breaking, learning publicly." },
-  { year: "2022", title: "Shruti AI begins", desc: "A privacy-first offline AI companion — the concept won the Ideathon at Satakunta University, Finland." },
-  { year: "2023", title: "iCode Hackathon — top 0.12%", desc: "98th nationally of 80,000+ and 178th globally among 50,000+ in Python Advanced." },
-  { year: "2024", title: "B.Tech CS + Applied Math", desc: "Began at VIPS New Delhi. 9.00 CGPA. Diving into research, security, and applied ML." },
-  { year: "2025", title: "Building in production", desc: "Shipped TruthLens AI, Hand Movement Tracker, and a freelance medical-tourism site live on Netlify." },
-  { year: "2026", title: "Legal AI, then production DS", desc: "Built NyayaSetu and Medsy; ranked #2 at IIIT-Delhi and DU CIC. Joined Spice Money as a Data Science Intern." },
+  { year: "2020", title: "First commit", desc: "On GitHub since age 14: building, breaking and learning in public." },
+  { year: "2022", title: "Ideathon win, Finland", desc: "1st place at the Satakunta University Ideathon, with a letter of recommendation. The winning concept became Shruti AI." },
+  { year: "2023", title: "iCode Hackathon: top 0.12%", desc: "98th nationally among 80,000+ participants and 178th globally in Python Advanced." },
+  { year: "2024", title: "B.Tech CS + Applied Math", desc: "Started at VIPS-TC (GGSIPU), pairing core CS with applied mathematics. 9.00 CGPA." },
+  { year: "2025", title: "Shipping real software", desc: "Built TruthLens AI and the Hand Movement Tracker, and delivered a client's medical-tourism site to production on Netlify." },
+  { year: "2026", title: "Internship, podiums, SIH", desc: "Data Science Intern at Spice Money (Jun to Aug). Built NyayaSetu and Medsy, placed 2nd at IIIT Delhi and DU CIC, and reached Round 3 of Smart India Hackathon with AnnData." },
 ];
 
 /* ================= SKILLS =================

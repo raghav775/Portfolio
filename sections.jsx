@@ -170,14 +170,14 @@ function About() {
             <div className="section-tag"><span className="num">01</span><span>About</span></div>
             <h2 className="section-title">Curiosity as a <em>forcing function.</em></h2>
           </div>
-          <div className="section-sub">Six years public on GitHub. Three years of hackathons. Now shipping data science in production.</div>
+          <div className="section-sub">On GitHub since 2020. Python for 5+ years. One production internship, built on CS fundamentals.</div>
         </div>
 
         <div className="about-grid">
           <div className="about-left">
             <div className="about-bio reveal">
-              <p>CS undergrad building <em>retrieval systems</em>, data pipelines, and privacy-first AI.</p>
-              <p>I'm drawn to problems at the boundary of <em>system design</em>, <em>security</em>, and machine learning.</p>
+              <p>CS undergrad building <em>backend services</em>, data pipelines, and retrieval systems.</p>
+              <p>I'm drawn to problems where <em>algorithms</em>, <em>system design</em>, and machine learning meet.</p>
               <p>The approach: understand the architecture, solve the hard part, <em>then ship</em>.</p>
             </div>
 
