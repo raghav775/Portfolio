@@ -353,6 +353,9 @@ const CONTACT = {
   githubUrl: "https://github.com/raghav775",
   linkedin: "linkedin.com/in/raghav-gulati16",
   linkedinUrl: "https://www.linkedin.com/in/raghav-gulati16",
+  leetcode: "leetcode.com/u/Raghav160906",
+  leetcodeUser: "Raghav160906",
+  leetcodeUrl: "https://leetcode.com/u/Raghav160906/",
   location: "New Delhi, India",
   resume: "assets/raghav-gulati-resume.pdf",
 };

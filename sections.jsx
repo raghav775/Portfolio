@@ -758,8 +758,8 @@ function Terminal() {
       { t: "blank" },
       { t: "prompt", path: "~/portfolio", cmd: "whoami" },
       { t: "out", k: "name", v: "Raghav Gulati" },
-      { t: "out", k: "role", v: "Data Science Intern · Spice Money" },
-      { t: "out", k: "study", v: "B.Tech CS + Applied Math · VIPS Delhi" },
+      { t: "out", k: "role", v: "CS undergrad · open to SWE internships" },
+      { t: "out", k: "study", v: "B.Tech CS + Applied Math · VIPS-TC (GGSIPU)" },
       { t: "out", k: "loc",  v: C.location },
       { t: "blank" },
       { t: "prompt", path: "~/portfolio", cmd: "cat contact.json" },
@@ -767,6 +767,7 @@ function Terminal() {
       { t: "out", k: "phone",    v: C.phone },
       { t: "out", k: "github",   v: C.github },
       { t: "out", k: "linkedin", v: C.linkedin },
+      { t: "out", k: "leetcode", v: C.leetcode },
       { t: "blank" },
       { t: "comment", text: "// type a message below ↓" },
     ];
@@ -838,7 +839,7 @@ function Contact() {
             <div className="section-tag"><span className="num">07</span><span>Contact</span></div>
             <h2 className="section-title">Let's <em>build</em> something memorable.</h2>
           </div>
-          <div className="section-sub">For research, internships, or hackathon teams that ship at 3 AM.</div>
+          <div className="section-sub">For software engineering internships, research, or hackathon teams that ship at 3 AM.</div>
         </div>
         <div className="contact-grid">
           <div className="contact-terminal reveal"><Terminal/></div>
@@ -860,6 +861,11 @@ function Contact() {
                aria-label="LinkedIn profile linkedin.com/in/raghav-gulati16 (opens in a new tab)">
               <div className="cc-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-.95 1.84-1.95 3.78-1.95 4.04 0 4.79 2.66 4.79 6.12V21H18.4v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97V21H10V9z"/></svg></div>
               <div><div className="cc-label">LinkedIn</div><div className="cc-value">{C.linkedin}</div></div>
+            </a>
+            <a className="contact-card" href={C.leetcodeUrl} target="_blank" rel="noopener noreferrer"
+               aria-label="LeetCode profile leetcode.com/u/Raghav160906 (opens in a new tab)">
+              <div className="cc-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M13.5 4l-3 16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></div>
+              <div><div className="cc-label">LeetCode</div><div className="cc-value">leetcode.com/u/<wbr/>{C.leetcodeUser}</div></div>
             </a>
             <a className="contact-card" href={C.resume} target="_blank" rel="noopener noreferrer"
                aria-label="Download résumé as PDF (opens in a new tab)">
@@ -887,6 +893,7 @@ function Footer() {
           <div className="footer-links">
             <a href={C.githubUrl} target="_blank" rel="noopener noreferrer">GitHub</a>
             <a href={C.linkedinUrl} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href={C.leetcodeUrl} target="_blank" rel="noopener noreferrer">LeetCode</a>
             <a href={`mailto:${C.email}`}>Email</a>
             <a href={C.resume} target="_blank" rel="noopener noreferrer">Résumé</a>
           </div>

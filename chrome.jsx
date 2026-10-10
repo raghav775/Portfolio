@@ -281,6 +281,7 @@ function Nav() {
           <div className="nav-drawer-extras">
             <a href={C.githubUrl} target="_blank" rel="noopener noreferrer">GitHub</a>
             <a href={C.linkedinUrl} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href={C.leetcodeUrl} target="_blank" rel="noopener noreferrer">LeetCode</a>
             <a href={`mailto:${C.email}`}>Email</a>
           </div>
         </div>
