@@ -1,9 +1,9 @@
-# Raghav Gulati — Portfolio v2.6
+# Raghav Gulati — Portfolio v2.7
 
-Personal portfolio site for Raghav Gulati, CS undergrad at VIPS New Delhi.  
+Personal portfolio site for Raghav Gulati, CS undergrad at VIPS-TC (GGSIPU), New Delhi.  
 Built with vanilla React (CDN), no build step required.
 
-**Live:** open `Raghav Gulati - Portfolio.html` directly in any modern browser.
+**Live:** https://raghavgulatidev.netlify.app/ — to run it locally, serve the folder over HTTP (see Running Locally).
 
 ---
 
@@ -22,7 +22,7 @@ Built with vanilla React (CDN), no build step required.
 ## File Structure
 
 ```
-├── Raghav Gulati - Portfolio.html   # Entry point — open this
+├── index.html                       # Entry point — meta tags, CDN scripts
 ├── app.jsx                          # Root component, section order
 ├── chrome.jsx                       # Nav, loader, cursor, particles, audio toggle
 ├── data.jsx                         # All content: projects, skills, achievements, contact
@@ -30,7 +30,7 @@ Built with vanilla React (CDN), no build step required.
 ├── styles.css                       # All styles
 ├── assets/
 │   ├── raghav.jpeg                  # Portrait photo
-│   └── Raghav-Gulati-Resume.pdf     # Resume (linked in nav CTA)
+│   └── raghav-gulati-resume.pdf     # Resume (linked in nav CTA)
 └── uploads/                         # Backup/alternate files
 ```
 
@@ -47,7 +47,7 @@ Find the project object in `PROJECTS` and edit:
 - `challenge` — one sentence: what made it technically hard
 - `summary` — 2–3 sentence technical description
 - `learned` — flagship project only: what you took away
-- `stack` — array of tech tags (first 5 shown)
+- `stack` — array of tech tags
 - `metrics` — three `{ label, value, unit }` objects
 - `github` — full URL to the repo
 
@@ -57,13 +57,13 @@ Copy any existing entry in `PROJECTS`, give it the next `id`, and pick a `span`:
 - `span-3` — medium card
 - `span-2` — compact card
 
-For the `visual` field, pick one of: `rag`, `neural`, `lens`, `hand`, `mobile`, `scrape`.  
+For the `visual` field, pick one of: `rag`, `geo`, `neural`, `lens`, `hand`, `mobile`, `scrape`.  
 To add a new visual, add a branch in the `ProjectVisual` function in `sections.jsx`.
 
 ### Update certifications
 Edit `CERTIFICATIONS` in `data.jsx`:
 ```js
-{ issuer: "IBM", name: "Cybersecurity Fundamentals", year: "2024" },
+{ issuer: "IBM", name: "Operating Systems: Administration & Security", year: "2024", category: "Systems & Security" },
 ```
 
 ### Update contact info
@@ -83,28 +83,26 @@ github: "https://github.com/raghav775/your-repo-name",
 |---|---|---|---|
 | — | Hero | `#hero` | Stats, portrait, title |
 | 01 | About | `#about` | Timeline + bio |
-| 02 | Skills | `#skills` | Orbit diagram + category bars |
-| 03 | Technical Highlights | `#highlights` | 8 fast-scan engineering bullets |
+| 02 | Skills | `#skills` | Depth and breadth skill groups, no proficiency bars |
+| 03 | Technical Highlights | `#highlights` | 4 engineering cards + a fast-scan list |
 | 04 | Selected Work | `#projects` | Project cards with problem/challenge/GitHub |
-| 05 | Wins | `#achievements` | Hackathon podiums + certifications |
-| 06 | Track | `#experience` | Work and ops experience |
-| 07 | Contact | `#contact` | Interactive terminal + contact cards |
+| 05 | Wins | `#achievements` | Counters, hackathon results, certifications, activities |
+| 06 | Track | `#experience` | Spice Money internship + freelance client work |
+| 07 | Contact | `#contact` | Interactive terminal + contact cards (email, phone, GitHub, LinkedIn, LeetCode, résumé) |
 
 ---
 
 ## Running Locally
 
-No install needed. Open the HTML file in Chrome, Firefox, or Edge:
+No install needed beyond a static file server (browsers block the `.jsx` requests when `index.html` is opened straight from disk). From the project folder:
 
 ```
-# macOS / Linux
-open "Raghav Gulati - Portfolio.html"
-
-# Windows
-start "Raghav Gulati - Portfolio.html"
+python -m http.server 8080
+# or
+npx serve -l 8080
 ```
 
-Or drag the file into a browser tab.
+Then open http://localhost:8080/ in Chrome, Firefox, or Edge.
 
 > **Note:** Babel compiles JSX in the browser on first load — expect a ~1–2s delay locally. In production, pre-compile the JSX or serve via a static host like Netlify for instant loads.
 
