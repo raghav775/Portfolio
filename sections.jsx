@@ -94,22 +94,22 @@ function Hero() {
               <div className="hero-stat">
                 <dt className="hero-stat-label">iCode Hackathon</dt>
                 <dd className="hero-stat-value">Top <span className="accent">0.12%</span></dd>
-                <div className="hero-stat-note">98th of 80,000+ · Python Advanced</div>
+                <dd className="hero-stat-note">98th of 80,000+ · Python Advanced</dd>
               </div>
               <div className="hero-stat">
                 <dt className="hero-stat-label">Hackathon podiums</dt>
                 <dd className="hero-stat-value">#2 <span className="thin">×2</span></dd>
-                <div className="hero-stat-note">IIIT Delhi · DU CIC</div>
+                <dd className="hero-stat-note">IIIT Delhi · DU CIC</dd>
               </div>
               <div className="hero-stat">
                 <dt className="hero-stat-label">CGPA</dt>
                 <dd className="hero-stat-value">9.00</dd>
-                <div className="hero-stat-note">B.Tech CS · VIPS Delhi</div>
+                <dd className="hero-stat-note">B.Tech CS · VIPS Delhi</dd>
               </div>
               <div className="hero-stat">
                 <dt className="hero-stat-label">Shipped</dt>
                 <dd className="hero-stat-value">7 projects</dd>
-                <div className="hero-stat-note">All source on GitHub</div>
+                <dd className="hero-stat-note">All source on GitHub</dd>
               </div>
             </dl>
           </div>
