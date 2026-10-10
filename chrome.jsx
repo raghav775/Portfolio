@@ -431,6 +431,8 @@ function AudioToggle() {
 function useReveal() {
   useEffect(() => {
     const els = document.querySelectorAll(".reveal, .reveal-stagger");
+    // threshold 0: a ratio like 0.12 is unreachable for a block taller than ~8x the
+    // viewport (the projects grid on a phone), which would leave it hidden for good.
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
@@ -438,7 +440,7 @@ function useReveal() {
           io.unobserve(e.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    }, { threshold: 0, rootMargin: "0px 0px -8% 0px" });
     els.forEach(el => io.observe(el));
     return () => io.disconnect();
   }, []);
