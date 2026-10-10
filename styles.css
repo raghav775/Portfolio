@@ -74,7 +74,13 @@
   --tap: 44px;
 
   --ease: cubic-bezier(.2,.8,.2,1);
+
+  /* The native pointer is only hidden once CustomCursor has mounted
+     (html.custom-cursor), so it is never missing before React renders or if a
+     script fails. */
+  --cursor-hide: auto;
 }
+html.custom-cursor { --cursor-hide: none; }
 
 /* Ultra-wide displays get a wider canvas rather than an ocean of margin. */
 @media (min-width: 1600px) {
@@ -109,7 +115,7 @@ html {
    wraps flex items like nav labels mid-word. */
 body {
   min-height: 100svh;
-  cursor: none;
+  cursor: var(--cursor-hide);
   overflow-wrap: break-word;
 }
 /* Media never dictates layout width. */
@@ -325,7 +331,7 @@ section:focus, section:focus-visible { outline: none; }
   color: var(--ink-2);
   letter-spacing: 0.02em;
   border-radius: 999px;
-  cursor: none; transition: color 200ms;
+  cursor: var(--cursor-hide); transition: color 200ms;
   background: transparent; border: 0; text-decoration: none;
 }
 .nav-link:hover { color: var(--ink-0); }
@@ -345,7 +351,7 @@ section:focus, section:focus-visible { outline: none; }
   color: white; text-decoration: none; white-space: nowrap;
   border-radius: 999px; border: 0;
   box-shadow: 0 6px 18px rgba(77,124,255,0.4), inset 0 1px 0 rgba(255,255,255,0.3);
-  cursor: none;
+  cursor: var(--cursor-hide);
   transition: transform 200ms var(--ease), box-shadow 200ms;
 }
 .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(77,124,255,0.55); }
@@ -360,7 +366,7 @@ section:focus, section:focus-visible { outline: none; }
   border: 1px solid var(--line-strong);
   border-radius: 12px;
   color: var(--ink-1);
-  cursor: none;
+  cursor: var(--cursor-hide);
   transition: background 200ms, border-color 200ms, color 200ms;
 }
 .nav-toggle:hover, .nav-toggle[aria-expanded="true"] {
@@ -661,7 +667,7 @@ section:focus, section:focus-visible { outline: none; }
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   padding: 11px 18px; min-height: var(--tap);
   font-family: var(--display); font-size: var(--fs-sm); font-weight: 600;
-  border-radius: 999px; text-decoration: none; cursor: none;
+  border-radius: 999px; text-decoration: none; cursor: var(--cursor-hide);
   transition: transform 200ms var(--ease), box-shadow 200ms, border-color 200ms, background 200ms;
 }
 /* Under ~420px three pills wrap into a ragged 2+1; a full-width primary with
@@ -1051,7 +1057,7 @@ section:focus, section:focus-visible { outline: none; }
   padding: var(--sp-md) var(--sp-md);
   overflow: hidden;
   transition: border-color 350ms, box-shadow 350ms, transform 350ms var(--ease);
-  cursor: none;
+  cursor: var(--cursor-hide);
 }
 /* Tablet: halves, with the flagship keeping a full row. */
 @media (min-width: 700px) {
@@ -1143,7 +1149,7 @@ section:focus, section:focus-visible { outline: none; }
   border: 1px solid var(--line-strong);
   background: rgba(255,255,255,0.04);
   color: var(--ink-1);
-  cursor: none;
+  cursor: var(--cursor-hide);
   transition: color 200ms, border-color 200ms, background 200ms, transform 200ms var(--ease);
 }
 /* Touch devices get the full 44px target and links that fill the row. */
@@ -1229,7 +1235,7 @@ section:focus, section:focus-visible { outline: none; }
   backdrop-filter: blur(16px);
   border-radius: var(--r-md);
   transition: border-color 350ms, background 350ms, transform 350ms var(--ease);
-  cursor: none;
+  cursor: var(--cursor-hide);
 }
 .ach-card:hover {
   border-color: rgba(168,85,247,0.45);
@@ -1397,7 +1403,7 @@ section:focus, section:focus-visible { outline: none; }
   border-radius: var(--r-md);
   text-decoration: none; color: inherit;
   transition: border-color 300ms, transform 300ms var(--ease);
-  cursor: none;
+  cursor: var(--cursor-hide);
   position: relative; overflow: hidden;
 }
 .contact-card::before {
@@ -1430,7 +1436,7 @@ section:focus, section:focus-visible { outline: none; }
   color: white;
   font-family: var(--display); font-weight: 600; font-size: var(--fs-base);
   border: 0; border-radius: var(--r-md);
-  cursor: none;
+  cursor: var(--cursor-hide);
   box-shadow: 0 18px 44px -10px rgba(77,124,255,0.55), inset 0 1px 0 rgba(255,255,255,0.3);
   transition: transform 200ms cubic-bezier(.2,.8,.2,1), box-shadow 200ms;
   text-decoration: none;
@@ -1504,7 +1510,7 @@ section:focus, section:focus-visible { outline: none; }
   backdrop-filter: blur(20px);
   border-radius: 50%;
   display: grid; place-items: center;
-  cursor: none; color: var(--ink-2);
+  cursor: var(--cursor-hide); color: var(--ink-2);
   transition: color 250ms, border-color 250ms, transform 250ms;
 }
 .audio-toggle:hover { color: var(--blue-bright); border-color: rgba(106,152,255,0.4); transform: scale(1.08); }

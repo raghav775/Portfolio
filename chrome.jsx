@@ -37,6 +37,7 @@ function CustomCursor() {
       document.documentElement.classList.add("native-cursor");
       return;
     }
+    document.documentElement.classList.add("custom-cursor");
     let mx = window.innerWidth/2, my = window.innerHeight/2;
     let rx = mx, ry = my;
     const onMove = (e) => {
@@ -61,6 +62,7 @@ function CustomCursor() {
     window.addEventListener("mousemove", onMove);
     window.addEventListener("mouseover", onOver);
     return () => {
+      document.documentElement.classList.remove("custom-cursor");
       window.removeEventListener("mousemove", onMove);
       window.removeEventListener("mouseover", onOver);
       cancelAnimationFrame(raf);
