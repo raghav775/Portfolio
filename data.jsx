@@ -314,16 +314,15 @@ const COUNTERS = [
 
 const EXPERIENCE = [
   {
-    period: "Jun 2026 — Aug 2026",
+    period: "Jun 2026 - Aug 2026",
     role: "Data Science Intern",
     org: "Spice Money",
-    current: true,
     desc:
-      "Built a RAG chatbot answering rural banking agents' policy queries across 11 verticals (AEPS, BBPS, MATM, DMT) from a 183-chunk corpus spanning 12 policy documents, fusing dense semantic search (BAAI/bge-small-en-v1.5) with BM25 via a 60/40 per-query score normalization in Qdrant to beat semantic-only retrieval.",
+      "Built a Retrieval-Augmented Generation chatbot that answers rural banking agents' policy queries across 11 verticals (AEPS, BBPS, MATM, DMT), using hybrid dense and BM25 search in Qdrant over a 183-chunk policy corpus.",
     bullets: [
-      "Designed a three-tier confidence gate (answer / clarify / refuse) reaching 100% refusal accuracy on adversarial queries, with Hinglish query rewriting and an LLM-as-judge harness (Gemini 2.5 Flash) scoring faithfulness and relevancy.",
-      "Built a tiered sales-forecasting pipeline over 6 months of agent transaction data using Theil-Sen robust regression and peer-growth blending to project Month-7 targets without absentee months skewing the trend, plus an AEPS-adoption scoring model to flag agents ready to grow usage.",
-      "Built a scraper across DBT and other government subsidy portals to pull disbursal data, feeding a subsidy history tracker and payout prediction pipeline that forecasts agent-level subsidy eligibility and timing.",
+      "Added a three-tier confidence gate (answer, clarify, refuse) that reached 100% refusal accuracy on adversarial queries, plus an LLM-as-judge harness scoring faithfulness and relevancy.",
+      "Built a sales-forecasting pipeline (Theil-Sen robust regression, peer-growth blending) over 6 months of agent transaction data, plus an AEPS-adoption scoring model.",
+      "Developed a scraper across government subsidy portals that feeds a payout prediction pipeline for agent-level subsidy eligibility and timing.",
     ],
     impact: [
       { label: "Verticals", value: "11" },
@@ -338,23 +337,11 @@ const EXPERIENCE = [
     org: "Medical Tourism Client",
     live: "medicaltour.netlify.app",
     desc:
-      "Translated business requirements into a production-ready medical-tourism site. Designed responsive multi-section layouts — service listings, informational pages, and contact flows — refined navigation and cross-device UX through iterative client feedback, and managed end-to-end deployment on Netlify.",
+      "Delivered a production medical-tourism website from the client's requirements: responsive multi-section layouts for services, information and contact flows, refined through rounds of client feedback and deployed on Netlify.",
     impact: [
       { label: "Stack", value: "HTML · CSS · JS" },
       { label: "Deployed", value: "Netlify" },
       { label: "Status", value: "Live" },
-    ],
-  },
-  {
-    period: "2024 — present",
-    role: "Operations · Entrepreneur Summit",
-    org: "Vivekananda Institute of Professional Studies",
-    desc:
-      "Co-led ticketing, sales, and finance for a 500+ attendee Entrepreneur Summit. Oversaw transactions exceeding ₹1.5L with full accuracy. Coordinated corporate sponsorship outreach securing ₹80,000+, and supported resource mobilization north of ₹2L.",
-    impact: [
-      { label: "Attendees", value: "500+" },
-      { label: "Sponsorship", value: "₹80K+" },
-      { label: "Mobilized", value: "₹2L+" },
     ],
   },
 ];

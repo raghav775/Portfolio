@@ -699,9 +699,9 @@ function Experience() {
         <div className="section-head reveal">
           <div>
             <div className="section-tag"><span className="num">06</span><span>Track</span></div>
-            <h2 className="section-title">Real <em>budgets</em>. Real ship dates.</h2>
+            <h2 className="section-title">Real <em>users</em>. Real ship dates.</h2>
           </div>
-          <div className="section-sub">Data science in production, client work delivered, and ops that balanced.</div>
+          <div className="section-sub">A production data science internship and client work delivered end to end.</div>
         </div>
         <div className="exp-list reveal-stagger">
           {window.EXPERIENCE.map((e, i) => (
