@@ -314,6 +314,7 @@ function AudioToggle() {
   const toggle = () => {
     if (!on) {
       const Ctx = window.AudioContext || window.webkitAudioContext;
+      if (!Ctx) return;
       const ctx = new Ctx();
       ctxRef.current = ctx;
       ctx.resume();
@@ -411,11 +412,14 @@ function AudioToggle() {
       if (n) {
         n.loopRef.alive = false;
         clearTimeout(n.loopRef.timer);
-        const now = ctxRef.current.currentTime;
+        // Close this specific context: a quick toggle back on replaces ctxRef.current
+        // before the timer below fires.
+        const ctx = ctxRef.current;
+        const now = ctx.currentTime;
         n.master.gain.cancelScheduledValues(now);
         n.master.gain.setValueAtTime(n.master.gain.value, now);
         n.master.gain.linearRampToValueAtTime(0, now + 1.5);
-        setTimeout(() => { try { ctxRef.current.close(); } catch(_){} }, 2000);
+        setTimeout(() => { try { ctx.close().catch(() => {}); } catch(_){} }, 2000);
       }
       setOn(false);
     }
