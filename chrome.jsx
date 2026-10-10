@@ -47,7 +47,7 @@ function CustomCursor() {
       document.documentElement.style.setProperty("--my", (my / window.innerHeight * 100) + "%");
     };
     const onOver = (e) => {
-      const t = e.target.closest("a, button, .nav-link, .project-card, .ach-card, .contact-card, .skill-tag, .audio-toggle, .transmit-btn, .orbit-chip, input, textarea");
+      const t = e.target.closest("a, button, .nav-link, .project-card, .ach-card, .contact-card, .audio-toggle, .transmit-btn, input, textarea");
       if (ring.current) ring.current.classList.toggle("hover", !!t);
       if (dot.current) dot.current.classList.toggle("hover", !!t);
     };
@@ -465,25 +465,6 @@ function GlobalBg() {
   );
 }
 
-// magnetic button hook — call `bind()` to get props, ref-style
-function useMagnetic(strength = 18) {
-  const ref = useRef(null);
-  useEffect(() => {
-    const el = ref.current; if (!el) return;
-    const onMove = (e) => {
-      const r = el.getBoundingClientRect();
-      const x = e.clientX - r.left - r.width/2;
-      const y = e.clientY - r.top - r.height/2;
-      el.style.transform = `translate(${x/strength}px, ${y/strength}px)`;
-    };
-    const onLeave = () => { el.style.transform = ""; };
-    el.addEventListener("mousemove", onMove);
-    el.addEventListener("mouseleave", onLeave);
-    return () => { el.removeEventListener("mousemove", onMove); el.removeEventListener("mouseleave", onLeave); };
-  }, [strength]);
-  return ref;
-}
-
 Object.assign(window, {
-  Loader, CustomCursor, Nav, AudioToggle, GlobalBg, ScrollProgress, useReveal, useMagnetic
+  Loader, CustomCursor, Nav, AudioToggle, GlobalBg, ScrollProgress, useReveal
 });
