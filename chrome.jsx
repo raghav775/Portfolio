@@ -188,8 +188,9 @@ function Nav() {
   // Tab must not wander into content hidden behind the scrim.
   useEffect(() => {
     if (!open) return;
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    const root = document.documentElement;
+    const prev = root.style.overflow;
+    root.style.overflow = "hidden";
 
     const focusables = () => {
       const panel = panelRef.current;
@@ -224,7 +225,7 @@ function Nav() {
     });
 
     return () => {
-      document.body.style.overflow = prev;
+      root.style.overflow = prev;
       document.removeEventListener("keydown", onKey);
       cancelAnimationFrame(raf1);
       cancelAnimationFrame(raf2);
