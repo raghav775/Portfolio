@@ -794,8 +794,8 @@ section:focus, section:focus-visible { outline: none; }
   .hud-mark.tl, .hud-mark.bl { left: 10px; }
   .hud-mark.tr, .hud-mark.br { right: 10px; }
 }
-/* At this width the eyebrow directly under the portrait already says
-   "Data Science Intern · Spice Money", so the overlay card is pure occlusion. */
+/* At this width the portrait is too small to carry an overlay card without
+   occluding it, and the hero statement right below already names Spice Money. */
 @media (max-width: 480px) {
   .float-card { display: none; }
 }

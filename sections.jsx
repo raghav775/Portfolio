@@ -5,8 +5,8 @@ const { useEffect, useRef, useState } = React;
 /* ================= HERO ================= */
 function HeroLines() {
   const lines = [
-    ["I", "build", "retrieval", "systems,"],
-    ["data", "pipelines", "&", "private", "AI"],
+    ["I", "build", "backend", "services,"],
+    ["data", "pipelines", "&", "AI", "tools"],
   ];
   let idx = 0;
   return (
@@ -61,7 +61,7 @@ function Hero() {
           <div className="hero-main">
             <div className="hero-eyebrow">
               <span className="dot"/>
-              <span>Data Science Intern · Spice Money · New Delhi</span>
+              <span>Open to SWE internships · New Delhi</span>
             </div>
 
             <h1 className="hero-title">
@@ -70,9 +70,10 @@ function Hero() {
             </h1>
 
             <p className="hero-statement">
-              B.Tech <strong>CS with Applied Mathematics</strong> at VIPS Delhi. I ship production
-              <strong> RAG and retrieval systems</strong>, <strong>forecasting models</strong>, and privacy-first
-              AI — most recently a rural-banking policy chatbot serving agent queries across 11 verticals at Spice Money.
+              B.Tech <strong>CS with Applied Mathematics</strong> at VIPS-TC (GGSIPU), 9.00 CGPA. I build
+              <strong> backend services</strong>, <strong>data pipelines</strong> and <strong>retrieval systems</strong> on
+              solid DSA fundamentals. Most recently, a policy chatbot for rural banking agents as a Data Science
+              Intern at Spice Money.
             </p>
 
             <div className="hero-actions">
@@ -97,19 +98,19 @@ function Hero() {
                 <dd className="hero-stat-note">98th of 80,000+ · Python Advanced</dd>
               </div>
               <div className="hero-stat">
-                <dt className="hero-stat-label">Hackathon podiums</dt>
-                <dd className="hero-stat-value">#2 <span className="thin">×2</span></dd>
-                <dd className="hero-stat-note">IIIT Delhi · DU CIC</dd>
+                <dt className="hero-stat-label">LeetCode</dt>
+                <dd className="hero-stat-value">100+ <span className="thin">solved</span></dd>
+                <dd className="hero-stat-note">Python · arrays to DP</dd>
               </div>
               <div className="hero-stat">
                 <dt className="hero-stat-label">CGPA</dt>
                 <dd className="hero-stat-value">9.00</dd>
-                <dd className="hero-stat-note">B.Tech CS · VIPS Delhi</dd>
+                <dd className="hero-stat-note">B.Tech CS · VIPS-TC</dd>
               </div>
               <div className="hero-stat">
-                <dt className="hero-stat-label">Shipped</dt>
-                <dd className="hero-stat-value">7 projects</dd>
-                <dd className="hero-stat-note">All source on GitHub</dd>
+                <dt className="hero-stat-label">Hackathon podiums</dt>
+                <dd className="hero-stat-value">#2 <span className="thin">×2</span></dd>
+                <dd className="hero-stat-note">IIIT Delhi · DU CIC</dd>
               </div>
             </dl>
           </div>
@@ -121,9 +122,9 @@ function Hero() {
               <span className="hud-mark bl"/><span className="hud-mark br"/>
             </div>
             <div className="float-card fc-1">
-              <div className="float-card-label">Currently</div>
+              <div className="float-card-label">Interned at</div>
               <div className="float-card-value">Spice Money</div>
-              <div className="float-card-note">Data Science Intern</div>
+              <div className="float-card-note">Data Science · 2026</div>
             </div>
             <div className="float-card fc-2">
               <div className="float-card-label">Latest build</div>
@@ -139,7 +140,7 @@ function Hero() {
 
 /* ================= MARQUEE ================= */
 function Marquee() {
-  const items = ["RAG & retrieval", "Data science", "Cybersecurity", "Full-stack", "Privacy-first AI", "Hackathons", "Research", "Builder"];
+  const items = ["Data structures & algorithms", "Backend & REST APIs", "System design", "Full-stack", "RAG & LLMs", "Data pipelines", "Hackathons", "Builder"];
   const set = (
     <div className="marquee-item">
       {items.map((it, i) => (
