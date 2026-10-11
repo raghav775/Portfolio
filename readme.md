@@ -57,14 +57,16 @@ Copy any existing entry in `PROJECTS`, give it the next `id`, and pick a `span`:
 - `span-3` — medium card
 - `span-2` — compact card
 
-For the `visual` field, pick one of: `rag`, `geo`, `neural`, `lens`, `hand`, `mobile`, `scrape`.  
+For the `visual` field, pick one of: `rag`, `geo`, `neural`, `lens`, `hand`, `mobile`, `farm`.  
 To add a new visual, add a branch in the `ProjectVisual` function in `sections.jsx`.
 
 ### Update certifications
-Edit `CERTIFICATIONS` in `data.jsx`:
+Edit `CERTIFICATIONS` in `data.jsx`. Cards are grouped by `category`, in the order each category first appears. `skills` and `desc` are optional, and `verify` adds a Verify link to the issuer's own verification page:
 ```js
-{ issuer: "IBM", name: "Operating Systems: Administration & Security", year: "2024", category: "Systems & Security" },
+{ issuer: "IBM", name: "Operating Systems: Overview, Administration, and Security", year: "2024", category: "Systems & Security",
+  skills: ["OS architecture", "Process management"], verify: "https://coursera.org/verify/UU6F36J5DLPK" },
 ```
+The card's accent color comes from a `.cert-card[data-issuer="..."]` rule in `styles.css`, keyed on the first word of `issuer`, lowercased. Add one when you add a new issuer.
 
 ### Update contact info
 Edit the `CONTACT` object at the bottom of `data.jsx`.
@@ -82,13 +84,15 @@ github: "https://github.com/raghav775/your-repo-name",
 | # | Section | ID | Notes |
 |---|---|---|---|
 | — | Hero | `#hero` | Stats, portrait, title |
-| 01 | About | `#about` | Timeline + bio |
-| 02 | Skills | `#skills` | Depth and breadth skill groups, no proficiency bars |
-| 03 | Technical Highlights | `#highlights` | 4 engineering cards + a fast-scan list |
-| 04 | Selected Work | `#projects` | Project cards with problem/challenge/GitHub |
-| 05 | Wins | `#achievements` | Counters, hackathon results, certifications, activities |
-| 06 | Track | `#experience` | Spice Money internship + freelance client work |
+| 01 | Experience | `#experience` | Spice Money internship + freelance client work |
+| 02 | About | `#about` | Timeline + bio |
+| 03 | Skills | `#skills` | Depth and breadth skill groups, no proficiency bars |
+| 04 | Technical Highlights | `#highlights` | 4 engineering cards + a fast-scan list |
+| 05 | Selected Work | `#projects` | Project cards with problem/challenge/GitHub |
+| 06 | Wins | `#achievements` | Counters, hackathon results, certifications with Verify links, activities |
 | 07 | Contact | `#contact` | Interactive terminal + contact cards (email, phone, GitHub, LinkedIn, LeetCode, résumé) |
+
+Section order lives in `app.jsx`. Keep `NAV_ITEMS` in `chrome.jsx` and the numbered section tags in `sections.jsx` in the same order: the scroll-spy assumes the nav list follows the page.
 
 ---
 
