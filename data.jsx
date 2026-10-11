@@ -279,14 +279,66 @@ const ACHIEVEMENTS = [
 
 const CERTIFICATIONS = [
   {
-    issuer: "Google · IBM · Cisco", name: "Foundations of Cybersecurity", year: "2024", category: "Systems & Security",
-    desc: "Core security principles: common threats, attack vectors, and defense strategies across modern systems.",
-    skills: ["Threat analysis", "Attack vectors", "Defense strategy", "Security fundamentals"],
+    issuer: "Meta", name: "Programming in Python", year: "2025", category: "Software Development",
+    skills: ["Data structures", "Control flow", "Functions", "Problem solving"],
+    verify: "https://coursera.org/verify/0L3L7ACA7UNE",
   },
   {
-    issuer: "IBM", name: "Operating Systems: Administration & Security", year: "2024", category: "Systems & Security",
-    desc: "OS architecture, user and process management, resource allocation, and system-level security hardening.",
+    issuer: "Meta", name: "Programming with JavaScript", year: "2025", category: "Software Development",
+    skills: ["ES6+", "DOM manipulation", "Functions & closures", "OOP"],
+    verify: "https://coursera.org/verify/YBXKOY0LXSC6",
+  },
+  {
+    issuer: "Meta", name: "Version Control", year: "2025", category: "Software Development",
+    skills: ["Git", "GitHub", "Branching", "Collaborative workflows"],
+    verify: "https://coursera.org/verify/8NDHRB51614P",
+  },
+  {
+    issuer: "Meta", name: "Introduction to Front-End Development", year: "2025", category: "Software Development",
+    skills: ["HTML", "CSS", "JavaScript", "Accessibility"],
+    verify: "https://coursera.org/verify/AEAEPLH75UFY",
+  },
+  {
+    issuer: "Meta", name: "HTML and CSS in depth", year: "2025", category: "Software Development",
+    skills: ["HTML5", "CSS3", "Responsive design", "Flexbox / Grid"],
+    verify: "https://coursera.org/verify/TLZDTNNI8603",
+  },
+  {
+    issuer: "VIPS", name: "PyEdge: Practical Python & NLP", year: "2024", category: "Software Development",
+    skills: ["NLTK / NLP", "Data visualization", "Database management", "Applied Python"],
+  },
+  {
+    issuer: "VIPS", name: "Mobile Application Development (Flutter & Dart)", year: "2024", category: "Software Development",
+    skills: ["Flutter", "Dart", "State management", "API integration"],
+  },
+  {
+    issuer: "IBM", name: "Operating Systems: Overview, Administration, and Security", year: "2024", category: "Systems & Security",
     skills: ["OS architecture", "Process management", "Resource allocation", "Hardening"],
+    verify: "https://coursera.org/verify/UU6F36J5DLPK",
+  },
+  {
+    issuer: "Google", name: "Foundations of Cybersecurity", year: "2024", category: "Systems & Security",
+    skills: ["Threat analysis", "Attack vectors", "Defense strategy", "Security fundamentals"],
+    verify: "https://coursera.org/verify/667VUPBDPLH8",
+  },
+  {
+    issuer: "IBM", name: "Introduction to Cybersecurity Tools & Cyberattacks", year: "2024", category: "Systems & Security",
+    skills: ["Threat actors", "Firewalls", "Cryptography", "Incident response"],
+    verify: "https://coursera.org/verify/DFGRBLR8XXG5",
+  },
+  {
+    issuer: "IBM", name: "Cybersecurity Compliance Framework, Standards & Regulations", year: "2024", category: "Systems & Security",
+    skills: ["GDPR", "HIPAA", "NIST", "Risk management"],
+    verify: "https://coursera.org/verify/2E5JNMD7M2E3",
+  },
+  {
+    issuer: "Cisco", name: "Introduction to Cybersecurity", year: "2025", category: "Systems & Security",
+    skills: ["Attacks & techniques", "Data privacy", "Organizational security"],
+  },
+  {
+    issuer: "iCode Global", name: "Global Hackathon 2023: Python Advanced", year: "2023", category: "Competitive Programming",
+    desc: "Ranked 178th of 1,052 students in the global finals.",
+    skills: ["Python", "Competitive programming"],
   },
 ];
 

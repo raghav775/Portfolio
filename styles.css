@@ -1734,6 +1734,10 @@ section:focus, section:focus-visible { outline: none; }
 .cert-card[data-issuer="meta"]:hover { border-color: rgba(138,99,255,0.4); border-left-color: rgba(138,99,255,1); box-shadow: 0 8px 28px rgba(138,99,255,0.18); }
 .cert-card[data-issuer="vips"] { border-left-color: rgba(251,191,36,0.65); }
 .cert-card[data-issuer="vips"]:hover { border-color: rgba(251,191,36,0.4); border-left-color: rgba(251,191,36,1); box-shadow: 0 8px 28px rgba(251,191,36,0.14); }
+.cert-card[data-issuer="cisco"] { border-left-color: rgba(4,159,217,0.65); }
+.cert-card[data-issuer="cisco"]:hover { border-color: rgba(4,159,217,0.4); border-left-color: rgba(4,159,217,1); box-shadow: 0 8px 28px rgba(4,159,217,0.16); }
+.cert-card[data-issuer="icode"] { border-left-color: rgba(217,70,239,0.65); }
+.cert-card[data-issuer="icode"]:hover { border-color: rgba(217,70,239,0.4); border-left-color: rgba(217,70,239,1); box-shadow: 0 8px 28px rgba(217,70,239,0.16); }
 .cert-card-top {
   display: flex;
   align-items: center;
@@ -1788,6 +1792,28 @@ section:focus, section:focus-visible { outline: none; }
   white-space: nowrap;
   flex-shrink: 0;
 }
+/* Links to the issuer's own verification page. `margin-top: auto` pins it to
+   the bottom of the card so the links line up across a row. */
+.cert-verify {
+  align-self: flex-start;
+  margin-top: auto;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding-top: 4px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue-bright);
+  text-decoration: none;
+  cursor: var(--cursor-hide);
+  transition: color 200ms;
+}
+.cert-verify:hover { color: var(--ink-0); }
+@media (pointer: coarse) { .cert-verify { min-height: 36px; } }
+/* Thirteen cards stack into one column on a phone; the topic chips nearly
+   double that scroll, while the name, issuer, year and Verify link carry
+   what a reader needs there. */
+@media (max-width: 520px) { .cert-skills { display: none; } }
 
 /* ==========================================================
    EXPERIENCE DESC

@@ -704,6 +704,13 @@ function Achievements() {
                             {c.skills.map((s, j) => <span key={j} className="cert-skill">{s}</span>)}
                           </div>
                         )}
+                        {c.verify && (
+                          <a className="cert-verify" href={c.verify} target="_blank" rel="noopener noreferrer"
+                             aria-label={`Verify the ${c.issuer} certificate for ${c.name} (opens in a new tab)`}>
+                            Verify
+                            <svg width="10" height="10" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg>
+                          </a>
+                        )}
                       </div>
                     ))}
                   </div>
