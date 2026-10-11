@@ -13,12 +13,12 @@ function App() {
       <main id="main">
         <Hero />
         <Marquee />
+        <Experience />
         <About />
         <Skills />
         <TechnicalHighlights />
         <Projects />
         <Achievements />
-        <Experience />
         <Contact />
       </main>
       <Footer />

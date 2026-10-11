@@ -167,7 +167,7 @@ function About() {
       <div className="wrap">
         <div className="section-head reveal">
           <div>
-            <div className="section-tag"><span className="num">01</span><span>About</span></div>
+            <div className="section-tag"><span className="num">02</span><span>About</span></div>
             <h2 className="section-title">Curiosity as a <em>forcing function.</em></h2>
           </div>
           <div className="section-sub">On GitHub since 2020. Python for 5+ years. One production internship, built on CS fundamentals.</div>
@@ -240,7 +240,7 @@ function Skills() {
       <div className="wrap">
         <div className="section-head reveal">
           <div>
-            <div className="section-tag"><span className="num">02</span><span>Skills</span></div>
+            <div className="section-tag"><span className="num">03</span><span>Skills</span></div>
             <h2 className="section-title">Fundamentals first, <em>then the stack</em>.</h2>
           </div>
           <div className="section-sub">
@@ -267,7 +267,7 @@ function TechnicalHighlights() {
       <div className="wrap">
         <div className="section-head reveal">
           <div>
-            <div className="section-tag"><span className="num">03</span><span>Technical Highlights</span></div>
+            <div className="section-tag"><span className="num">04</span><span>Technical Highlights</span></div>
             <h2 className="section-title">Engineering <em>depth.</em></h2>
           </div>
           <div className="section-sub">The four hardest problems I've worked on, then everything else worth scanning.</div>
@@ -606,7 +606,7 @@ function Projects() {
       <div className="wrap">
         <div className="section-head reveal">
           <div>
-            <div className="section-tag"><span className="num">04</span><span>Selected Work</span></div>
+            <div className="section-tag"><span className="num">05</span><span>Selected Work</span></div>
             <h2 className="section-title">Bets on a <em>smarter</em>, safer future.</h2>
           </div>
           <div className="section-sub">Seven projects shipped — every one with source on GitHub, five running live.</div>
@@ -660,7 +660,7 @@ function Achievements() {
       <div className="wrap">
         <div className="section-head reveal">
           <div>
-            <div className="section-tag"><span className="num">05</span><span>Wins</span></div>
+            <div className="section-tag"><span className="num">06</span><span>Wins</span></div>
             <h2 className="section-title">Where the <em>numbers</em> earn the words.</h2>
           </div>
           <div className="section-sub">Competitive programming, hackathon podiums, and the certifications behind them.</div>
@@ -747,7 +747,7 @@ function Experience() {
       <div className="wrap">
         <div className="section-head reveal">
           <div>
-            <div className="section-tag"><span className="num">06</span><span>Track</span></div>
+            <div className="section-tag"><span className="num">01</span><span>Experience</span></div>
             <h2 className="section-title">Real <em>users</em>. Real ship dates.</h2>
           </div>
           <div className="section-sub">A production data science internship and client work delivered end to end.</div>

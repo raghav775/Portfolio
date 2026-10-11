@@ -124,8 +124,8 @@ function Particles() {
 }
 
 const NAV_ITEMS = [
-  ["about","About"],["skills","Skills"],["highlights","Highlights"],
-  ["projects","Work"],["achievements","Wins"],["experience","Experience"],["contact","Contact"],
+  ["experience","Experience"],["about","About"],["skills","Skills"],
+  ["highlights","Highlights"],["projects","Work"],["achievements","Wins"],["contact","Contact"],
 ];
 
 // Below this the nav is a bar + drawer; above it, the desktop pill. Kept in
