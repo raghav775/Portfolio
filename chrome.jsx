@@ -170,6 +170,10 @@ function Nav() {
         const el = document.getElementById(id);
         if (el && el.getBoundingClientRect().top <= line) cur = id;
       }
+      // On a tall screen the page bottoms out before the last section's top
+      // reaches the line, so the bottom of the page belongs to the last link.
+      const root = document.documentElement;
+      if (window.innerHeight + window.scrollY >= root.scrollHeight - 2) cur = ids[ids.length - 1];
       setActive(cur);
     };
     const onScroll = () => {
