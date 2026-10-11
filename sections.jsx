@@ -465,15 +465,57 @@ function ProjectVisual({ kind }) {
     </svg>
   );
 
-  if (kind === "scrape") return (
-    <svg viewBox="0 0 520 120" role="img" aria-label="Configurable scraper turning paginated web rows into CSV and TXT exports">
-      {[...Array(6)].map((_,i) => (<rect key={i} x="30" y={18 + i*15} width={70 + (i%3)*46} height="6" rx="1" fill="rgba(106,152,255,0.22)"/>))}
-      <text x="30" y="112" fontFamily="JetBrains Mono" fontSize="9" fill="#8a8d99">paginated pages</text>
-      <path d="M250 56 L292 56" stroke="rgba(106,152,255,0.4)" strokeWidth="1" strokeDasharray="2 3"/>
-      <text x="302" y="34" fontFamily="JetBrains Mono" fontSize="12" fill="#6a98ff">.csv</text>
-      <text x="302" y="58" fontFamily="JetBrains Mono" fontSize="12" fill="#a855f7">.txt</text>
-      <text x="302" y="88" fontFamily="JetBrains Mono" fontSize="9.5" fill="#8a8d99">$ scrape -k AI -p 5</text>
-      <text x="302" y="104" fontFamily="JetBrains Mono" fontSize="9.5" fill="#34d399">lxml recovery ✓</text>
+  if (kind === "farm") return (
+    <svg viewBox="0 0 520 120" role="img" aria-label="AnnData lot flow: farmers' produce pooled into an FPO lot, AI pre-screened, physically assayed, then buyer offers ranked by net price instead of gross">
+      <defs>
+        <linearGradient id="ad1" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor="#34d399"/>
+          <stop offset="100%" stopColor="#6a98ff"/>
+        </linearGradient>
+      </defs>
+
+      {[...Array(3)].map((_,i) => (
+        <circle key={i} cx="22" cy={30 + i*20} r="5" fill="rgba(52,211,153,0.22)" stroke="#34d399" strokeWidth="1"/>
+      ))}
+      {[...Array(3)].map((_,i) => (
+        <path key={"f"+i} d={`M28 ${30 + i*20} L50 50`} stroke="rgba(52,211,153,0.4)" strokeWidth="1" strokeDasharray="2 3"/>
+      ))}
+      <text x="22" y="91" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="8.5" fill="#8a8d99">farmers</text>
+
+      <rect x="50" y="35" width="68" height="30" rx="5" fill="rgba(77,124,255,0.1)" stroke="rgba(106,152,255,0.55)" strokeWidth="1"/>
+      <text x="84" y="48" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="11" fill="#6a98ff">FPO lot</text>
+      <text x="84" y="59" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="8.5" fill="#8a8d99">pooled</text>
+
+      <path d="M118 50 L130 50" stroke="rgba(106,152,255,0.4)" strokeWidth="1" strokeDasharray="2 3"/>
+
+      <rect x="130" y="35" width="72" height="30" rx="5" fill="rgba(168,85,247,0.08)" stroke="rgba(168,85,247,0.5)" strokeWidth="1"/>
+      <text x="166" y="48" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="11" fill="#a855f7">AI screen</text>
+      <text x="166" y="59" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="8.5" fill="#8a8d99">advisory</text>
+
+      <path d="M202 50 L214 50" stroke="rgba(168,85,247,0.45)" strokeWidth="1" strokeDasharray="2 3"/>
+
+      <rect x="214" y="35" width="76" height="30" rx="5" fill="rgba(217,70,239,0.08)" stroke="rgba(217,70,239,0.45)" strokeWidth="1"/>
+      <text x="252" y="48" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="11" fill="#d946ef">assay</text>
+      <text x="252" y="59" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="8.5" fill="#8a8d99">authoritative</text>
+
+      <path d="M290 50 L306 50" stroke="rgba(217,70,239,0.45)" strokeWidth="1" strokeDasharray="2 3"/>
+      <path d="M28 50 L306 50" fill="none" stroke="url(#ad1)" strokeWidth="1.4" opacity="0.4" strokeDasharray="6 8" className="rag-flow"/>
+
+      <rect x="306" y="8" width="206" height="86" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.16)"/>
+      <text x="316" y="24" fontFamily="JetBrains Mono" fontSize="9" fill="#8a8d99">OFFER</text>
+      <text x="384" y="24" fontFamily="JetBrains Mono" fontSize="9" fill="#8a8d99">GROSS</text>
+      <text x="442" y="24" fontFamily="JetBrains Mono" fontSize="9" fill="#8a8d99">NET</text>
+      <line x1="316" y1="30" x2="502" y2="30" stroke="rgba(255,255,255,0.08)"/>
+      <text x="316" y="46" fontFamily="JetBrains Mono" fontSize="10.5" fill="#a0a3b1">buyer A</text>
+      <text x="384" y="46" fontFamily="JetBrains Mono" fontSize="10.5" fill="#a0a3b1">30.00</text>
+      <text x="442" y="46" fontFamily="JetBrains Mono" fontSize="10.5" fill="#fbbf24">26.00</text>
+      <rect x="310" y="53" width="198" height="18" rx="3" fill="rgba(52,211,153,0.08)" stroke="rgba(52,211,153,0.35)"/>
+      <text x="316" y="66" fontFamily="JetBrains Mono" fontSize="10.5" fill="#e8e9ee">buyer B</text>
+      <text x="384" y="66" fontFamily="JetBrains Mono" fontSize="10.5" fill="#a0a3b1">29.00</text>
+      <text x="442" y="66" fontFamily="JetBrains Mono" fontSize="10.5" fill="#34d399">27.50 ✓</text>
+      <text x="316" y="86" fontFamily="JetBrains Mono" fontSize="8.5" fill="#8a8d99">₹/kg after disclosed deductions</text>
+
+      <text x="8" y="113" fontFamily="JetBrains Mono" fontSize="9" fill="#8a8d99">SIH 2026 · 6 roles · itemized settlements · append-only audit log</text>
     </svg>
   );
   return null;
