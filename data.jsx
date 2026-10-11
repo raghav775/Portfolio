@@ -247,8 +247,8 @@ const HIGHLIGHTS_PRIMARY = [
     area: "System design",
     title: "A net-realization engine with an append-only audit log",
     detail:
-      "AnnData, for Smart India Hackathon 2026 (Round 3): a four-layer farm-to-buyer platform that ranks buyer offers by the farmer's net price after transport, commission, rejection risk and payment delay. In progress.",
-    tags: ["FastAPI", "PostgreSQL", "Flutter", "React"],
+      "AnnData (Smart India Hackathon 2026, Round 3) ranks buyer offers by what the farmer actually nets: gross price minus transport, loading, grading, storage and platform fees, with every deduction disclosed before an offer can be accepted.",
+    tags: ["FastAPI", "SQLAlchemy", "React", "TypeScript"],
   },
   {
     area: "Availability & security",

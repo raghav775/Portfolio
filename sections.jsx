@@ -127,7 +127,7 @@ function Hero() {
               <div className="float-card-note">Data Science · 2026</div>
             </div>
             <div className="float-card fc-2">
-              <div className="float-card-label">Latest build</div>
+              <div className="float-card-label">Flagship build</div>
               <div className="float-card-value">NyayaSetu</div>
               <div className="float-card-note">Legal RAG · live</div>
             </div>
