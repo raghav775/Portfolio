@@ -72,8 +72,8 @@ function Hero() {
             <p className="hero-statement">
               B.Tech <strong>CS with Applied Mathematics</strong> at VIPS-TC (GGSIPU), 9.00 CGPA. I build
               <strong> backend services</strong>, <strong>data pipelines</strong> and <strong>retrieval systems</strong> on
-              solid DSA fundamentals. Most recently, a policy chatbot for rural banking agents as a Data Science
-              Intern at Spice Money.
+              solid DSA fundamentals. Most recently, ISO 27001 security audits as a Security and Compliance Intern
+              at Nestlé India, after building a policy chatbot for rural banking agents at Spice Money.
             </p>
 
             <div className="hero-actions">
@@ -750,10 +750,10 @@ function Experience() {
             <div className="section-tag"><span className="num">01</span><span>Experience</span></div>
             <h2 className="section-title">Real <em>users</em>. Real ship dates.</h2>
           </div>
-          <div className="section-sub">A production data science internship and client work delivered end to end.</div>
+          <div className="section-sub">Security and compliance at Nestlé India, a production data science internship at Spice Money, and client work delivered end to end.</div>
         </div>
         <div className="exp-list reveal-stagger">
-          {window.EXPERIENCE.map((e, i) => (
+          {[...window.EXPERIENCE].sort((a, b) => (b.end || "").localeCompare(a.end || "")).map((e, i) => (
             <div key={i} className={"exp-card" + (e.current ? " current" : "")}>
               <div className="exp-period">
                 {e.period}

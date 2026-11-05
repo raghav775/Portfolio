@@ -41,7 +41,7 @@ const ABOUT_TIMELINE = [
   { year: "2023", title: "iCode Hackathon: top 0.12%", desc: "98th nationally among 80,000+ participants and 178th globally in Python Advanced." },
   { year: "2024", title: "B.Tech CS + Applied Math", desc: "Started at VIPS-TC (GGSIPU), pairing core CS with applied mathematics. 9.00 CGPA." },
   { year: "2025", title: "Shipping real software", desc: "Built TruthLens AI and the Hand Movement Tracker, and delivered a client's medical-tourism site to production on Netlify." },
-  { year: "2026", title: "Internship, podiums, SIH", desc: "Data Science Intern at Spice Money (Jun to Aug). Built NyayaSetu and Medsy, placed 2nd at IIIT Delhi and DU CIC, and reached Round 3 of Smart India Hackathon with AnnData." },
+  { year: "2026", title: "Internships, podiums, SIH", desc: "Data Science Intern at Spice Money (Jun to Aug), then Security and Compliance Intern at Nestlé India (Oct to Nov). Built NyayaSetu and Medsy, placed 2nd at IIIT Delhi and DU CIC, and reached Round 3 of Smart India Hackathon with AnnData." },
 ];
 
 /* ================= SKILLS =================
@@ -365,9 +365,30 @@ const COUNTERS = [
   { num: 7, suffix: "", label: "Projects shipped" },
 ];
 
+/* Rendered newest first: Experience() sorts by `end` (YYYY-MM), so entries can sit in any order here. */
 const EXPERIENCE = [
   {
+    period: "Oct 2026 - Nov 2026",
+    end: "2026-11",
+    role: "Security and Compliance Intern",
+    org: "Nestlé India",
+    desc:
+      "Selected for Nestlé India's Nesternship program to work on Security Cookbook Verification: auditing the company's ISMS security controls through standardised security cookbooks of audit procedures and control checks.",
+    bullets: [
+      "Audited ISMS controls across six domains: identity and access management, network, infrastructure, data protection, digital security, and risk management.",
+      "Reviewed and validated each cookbook's audit procedures and control checks for accuracy and completeness against ISO 27001 requirements.",
+      "Tracked compliance evidence in RSA Archer (GRC platform) and escalated control gaps for remediation; studied GDPR and HIPAA alongside ISO 27001.",
+    ],
+    impact: [
+      { label: "Program", value: "Nesternship" },
+      { label: "Domains audited", value: "6" },
+      { label: "Standard", value: "ISO 27001" },
+      { label: "GRC platform", value: "RSA Archer" },
+    ],
+  },
+  {
     period: "Jun 2026 - Aug 2026",
+    end: "2026-08",
     role: "Data Science Intern",
     org: "Spice Money",
     desc:
@@ -386,6 +407,7 @@ const EXPERIENCE = [
   },
   {
     period: "2025",
+    end: "2025-12",
     role: "Freelance Web Developer",
     org: "Medical Tourism Client",
     live: "medicaltour.netlify.app",
