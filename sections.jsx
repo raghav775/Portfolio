@@ -72,8 +72,8 @@ function Hero() {
             <p className="hero-statement">
               B.Tech <strong>CS with Applied Mathematics</strong> at VIPS-TC (GGSIPU), 9.00 CGPA. I build
               <strong> backend services</strong>, <strong>data pipelines</strong> and <strong>retrieval systems</strong> on
-              solid DSA fundamentals. Most recently, ISO 27001 security audits as a Security and Compliance Intern
-              at Nestlé India, after building a policy chatbot for rural banking agents at Spice Money.
+              solid DSA fundamentals. Most recently, ISO 27001 security audits across India, Sri Lanka and Bangladesh as a
+              Security and Compliance Intern at Nestlé India's head office, after building a policy chatbot for rural banking agents at Spice Money.
             </p>
 
             <div className="hero-actions">

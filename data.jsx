@@ -371,19 +371,20 @@ const EXPERIENCE = [
     period: "Oct 2026 - Nov 2026",
     end: "2026-11",
     role: "Security and Compliance Intern",
-    org: "Nestlé India",
+    org: "Nestlé India, Head Office",
     desc:
-      "Selected for Nestlé India's Nesternship program to work on Security Cookbook Verification: auditing the company's ISMS security controls through standardised security cookbooks of audit procedures and control checks.",
+      "Selected for Nestlé India's Nesternship program to work on Security Cookbook Verification at the head office: auditing ISMS security controls against ISO 27001 for operations in India, Sri Lanka and Bangladesh.",
     bullets: [
-      "Audited ISMS controls across six domains: identity and access management, network, infrastructure, data protection, digital security, and risk management.",
-      "Reviewed and validated each cookbook's audit procedures and control checks for accuracy and completeness against ISO 27001 requirements.",
-      "Tracked compliance evidence in RSA Archer (GRC platform) and escalated control gaps for remediation; studied GDPR and HIPAA alongside ISO 27001.",
+      "Turned the Identity and Access Management and Network Security cookbooks into audit checklists, then executed each control check against ISO 27001.",
+      "Collected active-user lists from application owners in India, Sri Lanka and Bangladesh and reconciled them against directory accounts and exit records, so leavers lose access and no unauthorised user remains.",
+      "Assessed server-room risk by classifying servers by criticality rating and securing mitigation sign-off from each server owner.",
+      "Verified that every user on the network platform held a company domain account (fully compliant) and coordinated folder migrations to SharePoint ahead of a file-share decommission.",
     ],
     impact: [
       { label: "Program", value: "Nesternship" },
-      { label: "Domains audited", value: "6" },
+      { label: "Countries", value: "India · Sri Lanka · Bangladesh" },
+      { label: "Cookbooks", value: "IAM · Network" },
       { label: "Standard", value: "ISO 27001" },
-      { label: "GRC platform", value: "RSA Archer" },
     ],
   },
   {
