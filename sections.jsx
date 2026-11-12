@@ -123,8 +123,8 @@ function Hero() {
             </div>
             <div className="float-card fc-1">
               <div className="float-card-label">Interned at</div>
-              <div className="float-card-value">Spice Money</div>
-              <div className="float-card-note">Data Science · 2026</div>
+              <div className="float-card-value">Nestlé</div>
+              <div className="float-card-note">India · Sri Lanka · Bangladesh</div>
             </div>
             <div className="float-card fc-2">
               <div className="float-card-label">Flagship build</div>
