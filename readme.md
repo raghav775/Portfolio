@@ -84,7 +84,7 @@ github: "https://github.com/raghav775/your-repo-name",
 | # | Section | ID | Notes |
 |---|---|---|---|
 | — | Hero | `#hero` | Stats, portrait, title |
-| 01 | Experience | `#experience` | Spice Money internship + freelance client work |
+| 01 | Experience | `#experience` | Nestlé India and Spice Money internships + freelance client work, sorted newest first by each entry's `end` (YYYY-MM) |
 | 02 | About | `#about` | Timeline + bio |
 | 03 | Skills | `#skills` | Depth and breadth skill groups, no proficiency bars |
 | 04 | Technical Highlights | `#highlights` | 4 engineering cards + a fast-scan list |
